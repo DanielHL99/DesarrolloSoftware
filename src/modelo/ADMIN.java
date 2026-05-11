@@ -8,6 +8,12 @@ package modelo;
  *
  * @author LUZ ELENA
  */
-public class ADMIN {
+public class ADMIN extends Usuario{
+
+    public ADMIN(int id, String nombre, String contraseña, boolean rol) {
+        super(id, nombre, contraseña, rol);
+    }
+    
+    
     
 }
