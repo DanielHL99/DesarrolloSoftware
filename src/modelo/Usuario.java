@@ -12,13 +12,12 @@ public class Usuario {
     private int id;
     private String nombre;
     private String contraseña;
-    private boolean rol;
+    
 
-    public Usuario(int id, String nombre, String contraseña, boolean rol) {
+    public Usuario(int id, String nombre, String contraseña) {
         this.id = id;
         this.nombre = nombre;
-        this.contraseña = contraseña;
-        this.rol = rol;
+        this.contraseña = contraseña;        
     }
 
     public int getId() {
@@ -43,15 +42,6 @@ public class Usuario {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
-    }
-
-    public boolean isRol() {
-        return rol;
-    }
-
-    public void setRol(boolean rol) {
-        this.rol = rol;
-    }
-    
+    }    
     
 }

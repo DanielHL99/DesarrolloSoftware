@@ -10,8 +10,8 @@ package modelo;
  */
 public class ADMIN extends Usuario{
 
-    public ADMIN(int id, String nombre, String contraseña, boolean rol) {
-        super(id, nombre, contraseña, rol);
+    public ADMIN(int id, String nombre, String contraseña) {
+        super(id, nombre, contraseña);
     }
     
     

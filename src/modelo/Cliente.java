@@ -12,8 +12,8 @@ public class Cliente extends Usuario{
     private int historialCompras;
     private int torneosInscritos;
 
-    public Cliente(int historialCompras, int torneosInscritos, int id, String nombre, String contraseña, boolean rol) {
-        super(id, nombre, contraseña, rol);
+    public Cliente(int historialCompras, int torneosInscritos, int id, String nombre, String contraseña) {
+        super(id, nombre, contraseña);
         this.historialCompras = historialCompras;
         this.torneosInscritos = torneosInscritos;
     }
