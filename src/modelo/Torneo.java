@@ -4,6 +4,8 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author LUZ ELENA
@@ -17,6 +19,8 @@ public class Torneo {
     private int numeroParticipantes;
     private String premios;
 
+    private ArrayList<Cliente> participantesInscritos;
+
     public Torneo(int id, String nombre, String fecha, int cupoMax, int numeroParticipantes, String premios) {
         this.id = id;
         this.nombre = nombre;
@@ -24,56 +28,53 @@ public class Torneo {
         this.cupoMax = cupoMax;
         this.numeroParticipantes = numeroParticipantes;
         this.premios = premios;
+        this.participantesInscritos = new ArrayList<>();
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
     public int getCupoMax() {
         return cupoMax;
-    }
-
-    public void setCupoMax(int cupoMax) {
-        this.cupoMax = cupoMax;
     }
 
     public int getNumeroParticipantes() {
         return numeroParticipantes;
     }
 
-    public void setNumeroParticipantes(int numeroParticipantes) {
-        this.numeroParticipantes = numeroParticipantes;
-    }
-
     public String getPremios() {
         return premios;
     }
 
-    public void setPremios(String premios) {
-        this.premios = premios;
+    public ArrayList<Cliente> getParticipantesInscritos() {
+        return participantesInscritos;
     }
     
     
     
+    public boolean AgregarParticipante(Cliente nuevoParticipante){
+        if(participantesInscritos.size() <= cupoMax){
+            System.out.println("Error: El torneo ya alcanzó el número máximo de participantes.");
+        return false;
+        }
+        
+        for (int i = 0; i < participantesInscritos.size(); i++) {
+            if(participantesInscritos.get(i).getId()== nuevoParticipante.getId()){
+                System.out.println("ID"+ nuevoParticipante.getId() +"ya inscrito" );
+            return false;
+            }
+        }
+        participantesInscritos.add(nuevoParticipante);
+        return true;
+    }
+     
 }
