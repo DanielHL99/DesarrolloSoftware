@@ -62,7 +62,5 @@ public class ControladorAdmin {
     
     public ArrayList<Torneo> getListaTorneos(){
         return listaTorneos;
-    }
-            
-            
+    }      
 }

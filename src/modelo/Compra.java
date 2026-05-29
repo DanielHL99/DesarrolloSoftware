@@ -4,47 +4,42 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author LUZ ELENA
  */
 public class Compra {
-    private int id;
-    private String fecha; 
-    private double total;
+    private int idCompra;
     private Cliente cliente;
-    private DetalleCompra detalleCompra;
+    private ArrayList<DetalleCompra> listaDetalles;
+    private double totalFinal;
+    private String fecha; 
 
-    public Compra(int id, String fecha, double total, Cliente cliente, DetalleCompra detalleCompra) {
-        this.id = id;
-        this.fecha = fecha;
-        this.total = total;
+    public Compra(int idCompra, Cliente cliente, ArrayList<DetalleCompra> listaDetalles, String fecha) {
+        this.idCompra = idCompra;
         this.cliente = cliente;
-        this.detalleCompra = detalleCompra;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
+        this.listaDetalles = listaDetalles;
+        this.totalFinal = CalcularTotal();
         this.fecha = fecha;
     }
 
-    public double getTotal() {
+    private double CalcularTotal(){
+        double total = 0;
+        
+        for (int i = 0; i < listaDetalles.size(); i++) {
+            total += listaDetalles.get(i).calcularSubtotal();
+        }
         return total;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public int getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(int idCompra) {
+        this.idCompra = idCompra;
     }
 
     public Cliente getCliente() {
@@ -55,13 +50,27 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public DetalleCompra getDetalleCompra() {
-        return detalleCompra;
+    public ArrayList<DetalleCompra> getListaDetalles() {
+        return listaDetalles;
     }
 
-    public void setDetalleCompra(DetalleCompra detalleCompra) {
-        this.detalleCompra = detalleCompra;
+    public void setListaDetalles(ArrayList<DetalleCompra> listaDetalles) {
+        this.listaDetalles = listaDetalles;
     }
-    
-    
+
+    public double getTotalFinal() {
+        return totalFinal;
+    }
+
+    public void setTotalFinal(double totalFinal) {
+        this.totalFinal = totalFinal;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 }

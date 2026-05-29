@@ -12,12 +12,17 @@ public class DetalleCompra {
     
     private int cantidad;
     private double subtotal;
-    private String producto;
+    private Producto producto;
 
-    public DetalleCompra(int cantidad, double subtotal, String producto) {
+    public DetalleCompra(int cantidad, double subtotal, Producto producto) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
         this.producto = producto;
+    }
+
+    public double calcularSubtotal(){
+        subtotal = producto.getPrecioUSD()*cantidad;
+        return subtotal;
     }
 
     public int getCantidad() {
@@ -36,13 +41,15 @@ public class DetalleCompra {
         this.subtotal = subtotal;
     }
 
-    public String getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setProducto(String producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
+    
+    
     
     
 }
